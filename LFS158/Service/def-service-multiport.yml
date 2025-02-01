@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: myapp
+  type: NodePort
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080 # port of the Service and Service is accesible within the cluster using ClusterIP
+    targetPort: 80 # port of the Pod
+    nodePort: 31080 # port where the Service is accessible outside of the cluster.
+  - name: https
+    protocol: TCP
+    port: 8443
+    targetPort: 443
+    nodePort: 31443

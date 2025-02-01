@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-dash
+  namespace: default
+  uid: cd6c04c1-1cb1-49a9-8592-edc19a13f390
+  resourceVersion: '56887'
+  creationTimestamp: '2025-01-18T14:16:00Z'
+  labels:
+    k8s-app: web-dash
+spec:
+  ports:
+    - name: tcp-8080-80-t5xc5
+      protocol: TCP
+      port: 8080
+      targetPort: 80
+      nodePort: 32246
+  selector:
+    k8s-app: web-dash
+  clusterIP: 10.111.240.251
+  clusterIPs:
+    - 10.111.240.251
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer: {}

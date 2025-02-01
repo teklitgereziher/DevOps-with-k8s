@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-svc
+  namespace: k8stutorial
+spec:
+  selector:
+    app: hello-world
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 3000
+  type: ClusterIP # accessible only from within the cluster.

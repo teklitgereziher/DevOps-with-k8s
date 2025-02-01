@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-svc
+spec:
+  selector:
+    app: frontend
+  ports:
+  - protocol: TCP
+    port: 80 # Service receives requests from the user/client on port: 80
+    targetPort: 5000 # forwards the requests to one of the attached Pods on the targetPort: 5000. If the targetPort is not defined explicitly, then traffic will be forwarded to Pods on the port on which the Service receives traffic - in this case the targetPort implicitly is assigned the value of the port. It is very important to ensure that the value of the targetPort, which is 5000 in this example, matches the value of the containerPort property of the Pod spec section.
+  internalTrafficPolicy: Local # or Cluster
+  externalTrafficPolicy: Local # or Cluster
+  type: ClusterIP # accessible only from within the cluster.

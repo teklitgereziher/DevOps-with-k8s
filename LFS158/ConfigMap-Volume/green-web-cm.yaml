@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: green-web-cm
+  namespace: k8stutorial
+data:
+  index.html: "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<title>Welcome to GREEN App!</title>\r\n<style>\r\n    body {\r\n        width: 35em;\r\n        margin: 0 auto;\r\n        font-family: Tahoma, Verdana, Arial, sans-serif;\r\n        background-color: GREEN;\r\n    }\r\n</style>\r\n</head>\r\n<body>\r\n<h1 style=\"text-align: center;\">Welcome to GREEN App!</h1>\r\n</body>\r\n</html>"

@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: web-lb
+  namespace: default
+  labels:
+    app: nginx
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30479
+  selector:
+    app: nginx
+  clusterIP: 10.96.221.33
+  clusterIPs:
+    - 10.96.221.33
+  type: LoadBalancer
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer:
+    ingress:
+      - ip: 127.0.0.1
+        ipMode: VIP
